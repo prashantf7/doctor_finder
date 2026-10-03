@@ -84,7 +84,7 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Madini
+    - family: Madini One
       fonts:
         - asset: assets/fonts/Madini-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf

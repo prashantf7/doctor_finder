@@ -115,38 +115,3 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 }
-
-//      Scaffold(
-// body: Stack(
-// children: [
-// PageView.builder (
-// controller: _pageController,
-// itemCount: _pages.length,
-// onPageChanged: _onPageChanged,
-// itemBuilder: (context, index) {
-// return Column(
-// mainAxisAlignment: MainAxisAlignment.center,
-// children: [
-// Image.asset(_pages[index] ["image"]!, height: 250),
-// const SizedBox(height: 20),
-// Text(
-
-// _pages[index][ "title"]!,
-// style: AppStyles.headingTextStyle
-// .copyWith(color: Colors.black),
-// ), // Text
-// const SizedBox(height: 10),
-// Padding(
-// padding: const EdgeInsets.symmetric(horizontal: 30),
-// child: Text(
-// _pages[index] ["description"]!,
-// textAlign: TextAlign.center,
-// style: AppStyles.titleTextStyle
-// .copyWith(color: Colors.black),
-// ), // Text
-// ), // Padding
-// ], /
-// );
-// },
-// ),
-// ];)
