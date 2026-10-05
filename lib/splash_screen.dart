@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:doctor_finder/app_styles.dart';
 import 'package:doctor_finder/routes.dart';
 import 'package:flutter/material.dart';

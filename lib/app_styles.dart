@@ -2,6 +2,7 @@ import 'package:doctor_finder/size_config.dart';
 import 'package:flutter/material.dart';
 
 class AppStyles {
+
   static final headingTextStyle = TextStyle(
     fontSize: SizeConfig.getProportionateHeight(20),
     color: Colors.white,

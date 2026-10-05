@@ -1,6 +1,8 @@
 import 'package:doctor_finder/app_styles.dart';
+import 'package:doctor_finder/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:go_router/go_router.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -11,7 +13,7 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _pageController = PageController();
-  int currentPage = 0;
+  int currentPage = 1;
 
   final List<Map<String, String>> _pages = [
     {
@@ -44,9 +46,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     // Save onboarding completion status in shared preferences
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool('hasseenonboarding', true);
-
+context.goNamed(AppRoutes.signIn.name); // Navigate to the SignInScreen
     // Navigate to the next screen (e.g., SignInScreen)
-    Navigator.pushReplacementNamed(context, '/signin');
+    // Navigator.pushReplacementNamed(context, AppRoutes.signIn.name);
   }
 
   @override
@@ -55,6 +57,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       body: Stack(
         children: [
           PageView.builder(
+            onPageChanged: _onPageChanged,
             controller: _pageController,
             itemCount: _pages.length,
             itemBuilder: (context, index) {
@@ -84,7 +87,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               );
             },
           ),
-          Positioned(left: 0,right: 0,bottom: 80,
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 80,
             child: Row(
               children: List.generate(
                 _pages.length,
@@ -103,6 +109,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
           Positioned(
+            left: 0,
+            right: 0,
+            bottom: 40,
             child: currentPage == _pages.length - 1
                 ? ElevatedButton(
                     onPressed: _completeOnboarding,
