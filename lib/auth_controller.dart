@@ -2,6 +2,7 @@
 
 import 'dart:io';
 
+
 import 'package:doctor_finder/auth_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -119,8 +120,7 @@ class AuthController extends _$AuthController {
     state = const AsyncLoading();
 
     state = await AsyncValue.guard(() async {
-      await ref.read(authRepositoryProvider)
-          .createDoctorWithEmailAndPassword(
+      await ref.read(authRepositoryProvider).createDoctorWithEmailAndPassword(
             email: email.trim(),
             password: password.trim(),
             name: name.trim(),
